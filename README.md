@@ -12,7 +12,7 @@
 4. 运行Main
 
 ### 运行效果
-![运行效果](screenshot.png)
+![运行效果](screencapture.png)
 
 ## English
 
@@ -26,4 +26,4 @@ Simple demo about how to write a java graphics program.
 4. Run Main
 
 ### Runtime effect
-![Runtime effect](screenshot.png)
+![Runtime effect](screencapture.png)
