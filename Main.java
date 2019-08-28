@@ -134,12 +134,14 @@ public class Main {
         private int size;
         private int halfSize;
         private Color color;
+        private boolean fill;
 
         public Quad(IPositionable positionable, Color color, int size) {
             this.positionable = positionable;
             this.color = color;
             this.size = size;
             this.halfSize = size / 2;
+            this.fill = 0 == RandomUtil.randomBetween(0, 2);
         }
 
         public Quad(IPositionable positionable) {
@@ -153,7 +155,11 @@ public class Main {
             double rotate = positionable.getAngle() * Math.PI / 180;
             graphics2D.rotate(rotate, x + halfSize, y + halfSize);
             graphics2D.setColor(color);
-            graphics2D.drawRect(x, y, size, size);
+            if (fill) {
+                graphics2D.fillRect(x, y, size, size);
+            } else {
+                graphics2D.drawRect(x, y, size, size);
+            }
             graphics2D.rotate(-rotate, x + halfSize, y + halfSize);
         }
     }
@@ -164,12 +170,14 @@ public class Main {
         private int size;
         private int halfSize;
         private Color color;
+        private boolean fill;
 
         public Circle(IPositionable positionable, Color color, int size) {
             this.positionable = positionable;
             this.color = color;
             this.size = size;
             this.halfSize = size / 2;
+            this.fill = 0 == RandomUtil.randomBetween(0, 2);
         }
 
         public Circle(IPositionable positionable) {
@@ -179,7 +187,11 @@ public class Main {
         @Override
         public void paint(Graphics2D graphics2D) {
             graphics2D.setColor(color);
-            graphics2D.drawOval(positionable.getCoord().x - halfSize, positionable.getCoord().y - halfSize, size, size);
+            if (fill) {
+                graphics2D.fillOval(positionable.getCoord().x - halfSize, positionable.getCoord().y - halfSize, size, size);
+            } else {
+                graphics2D.drawOval(positionable.getCoord().x - halfSize, positionable.getCoord().y - halfSize, size, size);
+            }
         }
     }
 
